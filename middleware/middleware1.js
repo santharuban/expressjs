@@ -1,12 +1,10 @@
 const express=require('express');
 const app=express();
-
 app.use(middleware1)
 app.use(middleware2);
 function middleware(request,response,nextmiddleware){
     nextmiddleware()
 }
-
 function middleware1(req,res,next){
     req.customvalue=100;
     console.log('i am middleware1')
@@ -19,7 +17,7 @@ function middleware2(req,res,next){
 }
 function middleware3(req,res,next){
     console.log('i am middleware3');
-    next()
+    // next()
 }
 app.get('/',middleware3,(req,res,next) =>{
     console.log('i am middleware')
